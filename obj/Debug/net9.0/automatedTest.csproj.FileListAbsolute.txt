@@ -195,3 +195,4 @@ C:\Users\noteb\projek-ojt\tugas1\automatedTest\obj\Debug\net9.0\refint\automated
 C:\Users\noteb\projek-ojt\tugas1\automatedTest\obj\Debug\net9.0\automatedTest.pdb
 C:\Users\noteb\projek-ojt\tugas1\automatedTest\obj\Debug\net9.0\automatedTest.genruntimeconfig.cache
 C:\Users\noteb\projek-ojt\tugas1\automatedTest\obj\Debug\net9.0\ref\automatedTest.dll
+C:\Users\noteb\projek-ojt\tugas1\automatedTest\obj\Debug\net9.0\automatedTest.sourcelink.json

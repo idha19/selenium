@@ -14,7 +14,7 @@
 
     <!-- Optional: if you use remote Selenium (Selenoid/Grid) -->
     <Parameter name="IsSelenoid" value="false" />
-    <Parameter name="SeleniumRemote" value="http://192.168.43.38:5555" />
+    <Parameter name="SeleniumRemote" value="http://localhost:5555/" />
 
     <!-- Optional max retry for finding elements -->
     <Parameter name="MaxFindElement" value="30" />

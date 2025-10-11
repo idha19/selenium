@@ -43,7 +43,7 @@ namespace automatedTest.Support
             _extend = new ExtentReportsHelper();
             SameProcess = false;
             if (SameProcess && Browser != null) return;
-            Browser = new Browsers(_scenarioContext, _extend);
+            Browser = new Browsers(); /// ini ada yang aku ubah
             Browser.Init();
             BasePagesHelper.SetBasePage(Browser, _extend);
         }

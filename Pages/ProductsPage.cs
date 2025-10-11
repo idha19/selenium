@@ -31,11 +31,11 @@ namespace automatedTest.Pages
         // === LOCATORS ===
         private By BtnProducts => By.XPath("//a[@href='/products' and contains(normalize-space(.), 'Products')]");
         private By ImgSale => By.XPath("//img[contains(@src,'sale')]");
-        private By TitleAllProducts => By.XPath("//h2[normalize-space()='All Products']");
+        private By TitleAllProducts => By.CssSelector("h2.title.text-center");
         private By InputSearch => By.Id("search_product");
         private By BtnSearch => By.Id("submit_search");
-        private By TitleSearched => By.XPath("//h2[normalize-space()='Searched Products']");
-        private By ProductNames => By.XPath("//div[@class='productinfo text-center']/p");
+        private By TitleSearched => By.CssSelector("h2.title.text-center");
+        private By ProductNames => By.CssSelector("div.productinfo.text-center > p");
         private By ActiveMenu => By.CssSelector("ul.nav.navbar-nav li.active a");
 
         // === METHOD ===
