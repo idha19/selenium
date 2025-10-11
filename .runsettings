@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <TestRunParameters>
+    <!-- General Config -->
+    <Parameter name="AppBaseURL" value="https://automationexercise.com/" />
+    <Parameter name="AppName" value="AutomationExercise" />
+    <Parameter name="SeleniumBrowser" value="Chrome" />
+    <Parameter name="SeleniumBrowserVersion" value="latest" />
+    <Parameter name="SeleniumWait" value="10" />      
+    <Parameter name="SeleniumTimeout" value="60" />    
+    <Parameter name="SeleniumSleep" value="1" />       
+    <Parameter name="SeleniumDelayAfterTest" value="500" /> 
+    <Parameter name="LogLevel" value="Info" />
+
+    <!-- Optional: if you use remote Selenium (Selenoid/Grid) -->
+    <Parameter name="IsSelenoid" value="false" />
+    <Parameter name="SeleniumRemote" value="http://192.168.43.38:5555" />
+
+    <!-- Optional max retry for finding elements -->
+    <Parameter name="MaxFindElement" value="30" />
+  </TestRunParameters>
+</RunSettings>
