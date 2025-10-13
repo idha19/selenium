@@ -2,36 +2,23 @@ using NUnit.Framework;
 using automatedTest.Helpers;
 using automatedTest.Pages;
 using TechTalk.SpecFlow;
+using automatedTest.PageAssembly;
 
 namespace automatedTest.StepDefinitions
 {
     [Binding]
     public class SearchProductStepDefinitions
     {
-        private readonly HomePage _homePage = BasePagesHelper.GetBasePage.HomePage
-            ?? throw new ArgumentNullException(nameof(BasePagesHelper.GetBasePage.HomePage));
-
-        private readonly ProductsPage _productsPage = BasePagesHelper.GetBasePage.ProductsPage
-            ?? throw new ArgumentNullException(nameof(BasePagesHelper.GetBasePage.ProductsPage));
-
+        private BasePages? BasePage => BasePagesHelper.GetBasePage;
         private string _searchedKeyword = "";
 
         // -----------------------------
-        // GIVEN: Browser sudah terbuka
+        // GIVEN: Navigate ke halaman
         // -----------------------------
-        [Given(@"user launches the browser")]
-        public void GivenUserLaunchesTheBrowser()
+        [Given(@"user navigates to ""(.*)""")]
+        public void WhenUserNavigatesTo(string BaseUrl)
         {
-            // Browser sudah dikelola di BasePagesHelper
-        }
-
-        // -----------------------------
-        // WHEN: Navigate ke halaman
-        // -----------------------------
-        [When(@"user navigates to ""(.*)""")]
-        public void WhenUserNavigatesTo(string url)
-        {
-            _homePage.Navigate(url);
+            BasePage?.HomePage.Navigate(BaseUrl);
         }
 
         // -----------------------------
@@ -40,9 +27,8 @@ namespace automatedTest.StepDefinitions
         [Then(@"home page title ""(.*)"" should be visible")]
         public void ThenHomePageTitleShouldBeVisible(string title)
         {
-            Assert.IsTrue(_homePage.IsAt(), "Home page tidak tampil");
-            _homePage.VerifyHomePageComponents();
-            _homePage.VerifyHomeMenu(); // cek teks Home saja
+           Assert.IsTrue(BasePage?.HomePage.IsAt(), "Home page tidak tampil!");
+            BasePage?.HomePage.VerifyHomePageComponents();
         }
 
         // -----------------------------
@@ -51,10 +37,7 @@ namespace automatedTest.StepDefinitions
         [When(@"user clicks on ""(.*)"" button")]
         public void WhenUserClicksOnButton(string buttonName)
         {
-            if (buttonName.Equals("Products", System.StringComparison.OrdinalIgnoreCase))
-            {
-                _homePage.ClickProducts();
-            }
+            BasePage?.HomePage.ClickProducts();
         }
 
         // -----------------------------
@@ -63,14 +46,15 @@ namespace automatedTest.StepDefinitions
         [Then(@"products page title ""(.*)"" should be visible")]
         public void ThenProductsPageTitleShouldBeVisible(string title)
         {
-            Assert.IsTrue(_productsPage.IsAt(), "Products page tidak tampil");
-            _productsPage.VerifyProductsMenuActive(); // cek teks Products saja
+            Assert.IsTrue(BasePage?.ProductsPage.IsAt(), "Products page tidak tampil!");
+            BasePage?.ProductsPage.VerifyProductsMenuActive();
+            BasePage?.ProductsPage.VerifyProductsPageComponents();
         }
 
         [Then(@"user should see sale images")]
         public void ThenUserShouldSeeSaleImages()
         {
-            _productsPage.VerifyProductsPageComponents();
+            BasePage?.ProductsPage.VerifyProductsPageComponents();
         }
 
         // -----------------------------
@@ -80,7 +64,7 @@ namespace automatedTest.StepDefinitions
         public void WhenUserEntersAProductNameInTheSearchInput()
         {
             _searchedKeyword = "Blue Top"; // contoh keyword
-            _productsPage.SearchProduct(_searchedKeyword); // sudah include klik search
+            BasePage?.ProductsPage.SearchProduct(_searchedKeyword); // sudah include klik search
         }
 
         [When(@"clicks the search button")]
@@ -95,19 +79,19 @@ namespace automatedTest.StepDefinitions
         [Then(@"user should be navigated to the search results page")]
         public void ThenUserShouldBeNavigatedToTheSearchResultsPage()
         {
-            Assert.IsTrue(_productsPage.IsAt(), "Search results page tidak tampil");
+            Assert.IsTrue(BasePage?.ProductsPage.IsAt(), "Search results page tidak tampil");
         }
 
         [Then(@"title ""(.*)"" should be visible")]
         public void ThenTitleShouldBeVisible(string expectedTitle)
         {
-            _productsPage.VerifySearchResult(_searchedKeyword);
+            BasePage?.ProductsPage.VerifySearchResult(_searchedKeyword);
         }
 
         [Then(@"all products related to the searched keyword should be displayed")]
         public void ThenAllProductsRelatedToTheSearchedKeywordShouldBeDisplayed()
         {
-            _productsPage.VerifySearchResult(_searchedKeyword);
+            BasePage?.ProductsPage.VerifySearchResult(_searchedKeyword);
         }
     }
 }

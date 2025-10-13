@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using automatedTest.Helpers;
+using automatedTest.Pages.Components;
 using NUnit.Framework;
 using System.Threading;
 
@@ -14,29 +15,32 @@ namespace automatedTest.Pages
         private readonly ExtentReportsHelper? _extentReportsHelper;
         private uint TimeoutInSeconds => TestContext.Parameters.Get<uint>("SeleniumTimeout", 60);
         private int Sleep => TestContext.Parameters.Get<int>("SeleniumSleep", 2) * 1000;
+        private readonly Navbar _navbar;
 
         // === Konstruktor ===
         public ProductsPage()
         {
             _driver = null;
             _extentReportsHelper = null;
+            _navbar = new Navbar(_driver, _extentReportsHelper);
         }
 
         public ProductsPage(IWebDriver? webDriver, ExtentReportsHelper? reportsHelper)
         {
             _driver = webDriver;
             _extentReportsHelper = reportsHelper;
+            _navbar = new Navbar(webDriver, reportsHelper);
         }
 
         // === LOCATORS ===
-        private By BtnProducts => By.XPath("//a[@href='/products' and contains(normalize-space(.), 'Products')]");
+        // private By BtnProducts => By.XPath("//a[@href='/products' and contains(normalize-space(.), 'Products')]");
         private By ImgSale => By.XPath("//img[contains(@src,'sale')]");
         private By TitleAllProducts => By.CssSelector("h2.title.text-center");
         private By InputSearch => By.Id("search_product");
         private By BtnSearch => By.Id("submit_search");
         private By TitleSearched => By.CssSelector("h2.title.text-center");
         private By ProductNames => By.CssSelector("div.productinfo.text-center > p");
-        private By ActiveMenu => By.CssSelector("ul.nav.navbar-nav li.active a");
+        // private By ActiveMenu => By.CssSelector("ul.nav.navbar-nav li.active a");
 
         // === METHOD ===
 
@@ -62,8 +66,9 @@ namespace automatedTest.Pages
         /// </summary>
         public void VerifyProductsMenuActive()
         {
-            _driver.ControlDisplayed(BtnProducts, _extentReportsHelper, "Tombol Products tampil", true, TimeoutInSeconds);
-            _driver.ValidateElementTextContains(BtnProducts, _extentReportsHelper, "Menu Products teks", "Products", true, TimeoutInSeconds);
+            // _driver.ControlDisplayed(BtnProducts, _extentReportsHelper, "Tombol Products tampil", true, TimeoutInSeconds);
+            // _driver.ValidateElementTextContains(BtnProducts, _extentReportsHelper, "Menu Products teks", "Products", true, TimeoutInSeconds);
+            _navbar.VerifyNavbarVisible();
         }
 
         /// <summary>

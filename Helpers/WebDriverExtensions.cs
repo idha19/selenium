@@ -225,7 +225,7 @@ public static class WebDriverExtensions
         ExtentReportsHelper? extentReportsHelper, string elementName, bool isDisplayed = true,
         uint timeoutInSeconds = 60)
     {
-        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+        var wait = new WebDriverWait(driver!, TimeSpan.FromSeconds(timeoutInSeconds));
         wait.Until(WaitHelpers.ExpectedConditions.InvisibilityOfElementLocated(by));
     }
 

@@ -1967,10 +1967,10 @@
           }
         }
       },
-      "Selenium.Support/4.25.0": {
+      "Selenium.Support/4.36.0": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.25.0"
+          "Selenium.WebDriver": "4.36.0"
         },
         "compile": {
           "lib/netstandard2.0/WebDriver.Support.dll": {
@@ -1983,7 +1983,7 @@
           }
         }
       },
-      "Selenium.WebDriver/4.25.0": {
+      "Selenium.WebDriver/4.36.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/WebDriver.dll": {
@@ -1997,6 +1997,20 @@
         },
         "build": {
           "buildTransitive/Selenium.WebDriver.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/selenium-manager": {
+            "assetType": "native",
+            "rid": "linux"
+          },
+          "runtimes/osx/native/selenium-manager": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win/native/selenium-manager.exe": {
+            "assetType": "native",
+            "rid": "win"
+          }
         }
       },
       "SharpCompress/0.23.0": {
@@ -6264,24 +6278,24 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
-    "Selenium.Support/4.25.0": {
-      "sha512": "nIWkD1kth4Taq2XgDuvPv2xDpFzm3SODvfmuuTGvYYFYHAteWcOeczwsVMQErLtwKjEwfdGO0B9dwDr+i5ZEkQ==",
+    "Selenium.Support/4.36.0": {
+      "sha512": "3/kioF20M28FKkCccmxDqMYZy9j1G4H37dcHfPgTPiOAlQXrqV/moWoV56o2TVFLhZw7o53PlsMp6Y8br9Z3lg==",
       "type": "package",
-      "path": "selenium.support/4.25.0",
+      "path": "selenium.support/4.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/WebDriver.Support.dll",
         "lib/netstandard2.0/WebDriver.Support.xml",
-        "selenium.support.4.25.0.nupkg.sha512",
+        "selenium.support.4.36.0.nupkg.sha512",
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.25.0": {
-      "sha512": "0g/9I5ennfL2ZaQoXsfEPj+GcqrKlcVr1yxh3C/Eed/acNZrC38OaXLorsuHdAHiGn+QySV3iz8/hFcOXvVcoA==",
+    "Selenium.WebDriver/4.36.0": {
+      "sha512": "jYehpVsZyC8Sn6BJJ2xr8vM9QyPTDks7MdrlfZQFxs3wa8Jg4LPHPnzEYRT1CY1vSSydxhBxuDJ8tnUxrXo9Qw==",
       "type": "package",
-      "path": "selenium.webdriver/4.25.0",
+      "path": "selenium.webdriver/4.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6293,10 +6307,10 @@
         "lib/net8.0/WebDriver.xml",
         "lib/netstandard2.0/WebDriver.dll",
         "lib/netstandard2.0/WebDriver.xml",
-        "manager/linux/selenium-manager",
-        "manager/macos/selenium-manager",
-        "manager/windows/selenium-manager.exe",
-        "selenium.webdriver.4.25.0.nupkg.sha512",
+        "runtimes/linux/native/selenium-manager",
+        "runtimes/osx/native/selenium-manager",
+        "runtimes/win/native/selenium-manager.exe",
+        "selenium.webdriver.4.36.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
@@ -11297,8 +11311,8 @@
       "FluentAssertions >= 6.2.0",
       "Microsoft.NET.Test.Sdk >= 17.0.0",
       "NUnit3TestAdapter >= 4.2.0",
-      "Selenium.Support >= 4.25.0",
-      "Selenium.WebDriver >= 4.25.0",
+      "Selenium.Support >= 4.36.0",
+      "Selenium.WebDriver >= 4.36.0",
       "SpecFlow.Assist.Dynamic >= 1.4.2",
       "SpecFlow.NUnit >= 3.9.40",
       "SpecFlow.Plus.LivingDocPlugin >= 3.9.57",
@@ -11387,11 +11401,11 @@
           },
           "Selenium.Support": {
             "target": "Package",
-            "version": "[4.25.0, )"
+            "version": "[4.36.0, )"
           },
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[4.25.0, )"
+            "version": "[4.36.0, )"
           },
           "SpecFlow.Assist.Dynamic": {
             "target": "Package",

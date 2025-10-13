@@ -1,6 +1,8 @@
 using System;
 using automatedTest.Helpers;
 using automatedTest.Pages;
+using automatedTest.Pages.Components;
+using Dynamitey.DynamicObjects;
 using SeleniumExtras.PageObjects;
 
 namespace automatedTest.PageAssembly
@@ -51,5 +53,8 @@ namespace automatedTest.PageAssembly
         /// ProductsPage instance
         /// </summary>
         public ProductsPage ProductsPage => GetPages<ProductsPage>();
+        public Navbar Navbar => GetPages<Navbar>();
+        public RegisterPage RegisterPage => GetPages<RegisterPage>();
+        public LoginPage LoginPage => GetPages<LoginPage>();
     }
 }

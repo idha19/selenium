@@ -15,8 +15,8 @@
           "FluentAssertions": "6.2.0",
           "Microsoft.NET.Test.Sdk": "17.0.0",
           "NUnit3TestAdapter": "4.2.0",
-          "Selenium.Support": "4.25.0",
-          "Selenium.WebDriver": "4.25.0",
+          "Selenium.Support": "4.36.0",
+          "Selenium.WebDriver": "4.36.0",
           "SpecFlow.Assist.Dynamic": "1.4.2",
           "SpecFlow.NUnit": "3.9.40",
           "SpecFlow.Plus.LivingDocPlugin": "3.9.57",
@@ -42,8 +42,8 @@
       },
       "Appium.WebDriver/5.0.0-beta01": {
         "dependencies": {
-          "Selenium.Support": "4.25.0",
-          "Selenium.WebDriver": "4.25.0",
+          "Selenium.Support": "4.36.0",
+          "Selenium.WebDriver": "4.36.0",
           "System.Drawing.Common": "4.5.1"
         },
         "runtime": {
@@ -75,7 +75,7 @@
       },
       "DotNetSeleniumExtras.PageObjects.Core/4.0.1": {
         "dependencies": {
-          "Selenium.WebDriver": "4.25.0"
+          "Selenium.WebDriver": "4.36.0"
         },
         "runtime": {
           "lib/net5.0/SeleniumExtras.PageObjects.dll": {
@@ -86,7 +86,7 @@
       },
       "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
         "dependencies": {
-          "Selenium.WebDriver": "4.25.0"
+          "Selenium.WebDriver": "4.36.0"
         },
         "runtime": {
           "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {
@@ -1409,9 +1409,9 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
-      "Selenium.Support/4.25.0": {
+      "Selenium.Support/4.36.0": {
         "dependencies": {
-          "Selenium.WebDriver": "4.25.0"
+          "Selenium.WebDriver": "4.36.0"
         },
         "runtime": {
           "lib/netstandard2.0/WebDriver.Support.dll": {
@@ -1420,11 +1420,28 @@
           }
         }
       },
-      "Selenium.WebDriver/4.25.0": {
+      "Selenium.WebDriver/4.36.0": {
         "runtime": {
           "lib/net8.0/WebDriver.dll": {
             "assemblyVersion": "4.0.0.0",
             "fileVersion": "4.0.0.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/selenium-manager": {
+            "rid": "linux",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/selenium-manager": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/native/selenium-manager.exe": {
+            "rid": "win",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -3201,19 +3218,19 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.2",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512"
     },
-    "Selenium.Support/4.25.0": {
+    "Selenium.Support/4.36.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nIWkD1kth4Taq2XgDuvPv2xDpFzm3SODvfmuuTGvYYFYHAteWcOeczwsVMQErLtwKjEwfdGO0B9dwDr+i5ZEkQ==",
-      "path": "selenium.support/4.25.0",
-      "hashPath": "selenium.support.4.25.0.nupkg.sha512"
+      "sha512": "sha512-3/kioF20M28FKkCccmxDqMYZy9j1G4H37dcHfPgTPiOAlQXrqV/moWoV56o2TVFLhZw7o53PlsMp6Y8br9Z3lg==",
+      "path": "selenium.support/4.36.0",
+      "hashPath": "selenium.support.4.36.0.nupkg.sha512"
     },
-    "Selenium.WebDriver/4.25.0": {
+    "Selenium.WebDriver/4.36.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0g/9I5ennfL2ZaQoXsfEPj+GcqrKlcVr1yxh3C/Eed/acNZrC38OaXLorsuHdAHiGn+QySV3iz8/hFcOXvVcoA==",
-      "path": "selenium.webdriver/4.25.0",
-      "hashPath": "selenium.webdriver.4.25.0.nupkg.sha512"
+      "sha512": "sha512-jYehpVsZyC8Sn6BJJ2xr8vM9QyPTDks7MdrlfZQFxs3wa8Jg4LPHPnzEYRT1CY1vSSydxhBxuDJ8tnUxrXo9Qw==",
+      "path": "selenium.webdriver/4.36.0",
+      "hashPath": "selenium.webdriver.4.36.0.nupkg.sha512"
     },
     "SharpCompress/0.23.0": {
       "type": "package",

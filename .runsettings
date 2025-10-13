@@ -7,7 +7,7 @@
     <Parameter name="SeleniumBrowser" value="Chrome" />
     <Parameter name="SeleniumBrowserVersion" value="latest" />
     <Parameter name="SeleniumWait" value="10" />      
-    <Parameter name="SeleniumTimeout" value="60" />    
+    <Parameter name="SeleniumTimeout" value="30" />    
     <Parameter name="SeleniumSleep" value="1" />       
     <Parameter name="SeleniumDelayAfterTest" value="500" /> 
     <Parameter name="LogLevel" value="Info" />

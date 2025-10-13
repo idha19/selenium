@@ -3,8 +3,7 @@ Feature: Search Product
 
 @UI @Regression
 Scenario: User Searches for a product successfully
-    Given user launches the browser
-    When user navigates to "https://automationexercise.com/"
+    Given user navigates to "https://automationexercise.com/"
     Then home page title "Home" should be visible
 
     When user clicks on "Products" button
