@@ -16,6 +16,9 @@
     <Parameter name="IsSelenoid" value="false" />
     <Parameter name="SeleniumRemote" value="http://localhost:5555/" />
 
+    <Parameter name="Username" value="tase.case1@gmail.com" />
+    <Parameter name="Password" value="tase.case1" />
+
     <!-- Optional max retry for finding elements -->
     <Parameter name="MaxFindElement" value="30" />
   </TestRunParameters>

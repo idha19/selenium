@@ -6,36 +6,24 @@ using automatedTest.PageAssembly;
 
 namespace automatedTest.StepDefinitions
 {
-    [Binding]
+    [Binding, Scope(Tag = "SearchProduct")]
     public class SearchProductStepDefinitions
     {
         private BasePages? BasePage => BasePagesHelper.GetBasePage;
         private string _searchedKeyword = "";
 
-        // -----------------------------
-        // GIVEN: Navigate ke halaman
-        // -----------------------------
-        [Given(@"user navigates to ""(.*)""")]
-        public void WhenUserNavigatesTo(string BaseUrl)
+        [Given(@"user on automation exercise web home page")]
+        public void ThenUserOnAutomationExerciseWebHomePage()
         {
-            BasePage?.HomePage.Navigate(BaseUrl);
-        }
-
-        // -----------------------------
-        // THEN: Verifikasi HomePage tampil
-        // -----------------------------
-        [Then(@"home page title ""(.*)"" should be visible")]
-        public void ThenHomePageTitleShouldBeVisible(string title)
-        {
-           Assert.IsTrue(BasePage?.HomePage.IsAt(), "Home page tidak tampil!");
+            Assert.IsTrue(BasePage?.HomePage.IsAt(), "Home page tidak tampil!");
             BasePage?.HomePage.VerifyHomePageComponents();
         }
 
         // -----------------------------
         // WHEN: Klik tombol Products
         // -----------------------------
-        [When(@"user clicks on ""(.*)"" button")]
-        public void WhenUserClicksOnButton(string buttonName)
+        [When(@"user clicks on Products button")]
+        public void WhenUserClicksOnProductsButton()
         {
             BasePage?.HomePage.ClickProducts();
         }

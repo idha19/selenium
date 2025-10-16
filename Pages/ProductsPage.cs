@@ -13,8 +13,8 @@ namespace automatedTest.Pages
     {
         private readonly IWebDriver? _driver;
         private readonly ExtentReportsHelper? _extentReportsHelper;
-        private uint TimeoutInSeconds => TestContext.Parameters.Get<uint>("SeleniumTimeout", 60);
-        private int Sleep => TestContext.Parameters.Get<int>("SeleniumSleep", 2) * 1000;
+        private uint TimeoutInSeconds;
+        private int Sleep;
         private readonly Navbar _navbar;
 
         // === Konstruktor ===

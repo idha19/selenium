@@ -2,6 +2,7 @@ using NUnit.Framework;
 using automatedTest.Helpers;
 using automatedTest.PageAssembly;
 using TechTalk.SpecFlow;
+using static automatedTest.Helpers.TestDataSource;
 
 namespace automatedTest.StepDefinitions
 {
@@ -11,14 +12,8 @@ namespace automatedTest.StepDefinitions
         private BasePages? BasePage => BasePagesHelper.GetBasePage;
 
         // ======= NAVIGATION =======
-        [Given(@"user navigates to url ""(.*)""")]
-        public void GivenUserNavigatesToUrl(string BaseUrl)
-        {
-            BasePage?.HomePage.Navigate(BaseUrl);
-        }
-
-        [Then(@"verify that home page is visible successfully")]
-        public void ThenVerifyThatHomePageIsVisibleSuccessfully()
+        [Given(@"user on automation exercise web home page")]
+        public void ThenUserOnAutomationExerciseWebHomePage()
         {
             Assert.IsTrue(BasePage?.HomePage.IsAt(), "Home page tidak tampil!");
             BasePage?.HomePage.VerifyHomePageComponents();
@@ -37,10 +32,12 @@ namespace automatedTest.StepDefinitions
             Assert.IsTrue(BasePage?.LoginPage.IsLoginTitleVisible(), "\"Login to your account\" tidak tampil!");
         }
 
-        [When(@"user logs in with email ""(.*)"" and password ""(.*)""")]
-        public void WhenUserLogsInWithEmailAndPassword(string email, string password)
+
+        // LOGIN VALID
+        [When(@"user logs in with valid email and valid password")]
+        public void WhenUserLogsInWithEmailAndPassword()
         {
-            BasePage?.LoginPage.EnterEmailAndPassword(email, password);
+            BasePage?.LoginPage.EnterEmailAndPassword(Username, Password);
         }
 
         [Then(@"user clicks ""login"" button")]
@@ -55,17 +52,30 @@ namespace automatedTest.StepDefinitions
             Assert.IsTrue(BasePage?.LoginPage.IsLoggedInAsVisible(), "\"Logged in as username\" tidak tampil!");
         }
 
-        // ======= DELETE ACCOUNT =======
-        [When(@"user clicks ""Delete Account"" button")]
-        public void WhenUserClicksDeleteAccountButton()
+        // LOGIN INVALID
+        [When(@"user logs in with invalid email ""(.*)"" and invalid password ""(.*)""")]
+        public void WhenUserLogsInWithInvalidCredentials(string email, string password)
         {
-            BasePage?.LoginPage.ClickDeleteAccount();
+            BasePage?.LoginPage.EnterEmailAndPassword(email, password);
         }
 
-        [Then(@"verify that ""ACCOUNT DELETED!"" is visible")]
-        public void ThenVerifyThatAccountDeletedIsVisible()
+        [Then(@"verify error 'Your email or password is incorrect!' is visible")]
+        public void ThenVerifyErrorIsVisible()
         {
-            Assert.IsTrue(BasePage?.LoginPage.IsAccountDeletedVisible(), "\"ACCOUNT DELETED!\" tidak tampil!");
+            Assert.IsTrue(BasePage?.LoginPage.IsLoginErrorVisible(), "Pesan error login tidak tampil!");
+        }
+
+        // LOGOUT
+        [When(@"user clicks ""Logout"" button")]
+        public void WhenUserClicksLogoutButton()
+        {
+            BasePage?.LoginPage.ClickLogoutButton();
+        }
+
+        [Then(@"verify that user is navigated to login page")]
+        public void ThenVerifyThatUserIsNavigatedToLoginPage()
+        {
+            Assert.IsTrue(BasePage?.LoginPage.IsBackToLoginPage(), "User tidak diarahkan kembali ke halaman login!");
         }
     }
 }

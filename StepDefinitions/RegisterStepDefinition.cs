@@ -10,15 +10,9 @@ namespace automatedTest.StepDefinitions
     {
         private BasePages? BasePage => BasePagesHelper.GetBasePage;
 
-        // ======= NAVIGATION =======
-        [Given(@"user navigates to url ""(.*)""")]
-        public void GivenUserNavigatesToUrl(string BaseUrl)
-        {
-            BasePage?.HomePage.Navigate(BaseUrl);
-        }
 
-        [Then(@"verify that home page is visible successfully")]
-        public void ThenVerifyThatHomePageIsVisibleSuccessfully()
+        [Given(@"user on automation exercise web home page")]
+        public void ThenUserOnAutomationExerciseWebHomePage()
         {
             Assert.IsTrue(BasePage?.HomePage.IsAt(), "Home page tidak tampil!");
             BasePage?.HomePage.VerifyHomePageComponents();

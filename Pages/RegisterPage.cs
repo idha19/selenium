@@ -12,8 +12,8 @@ namespace automatedTest.Pages
         private readonly ExtentReportsHelper _extentReportsHelper;
         private readonly Navbar _navbar;
 
-        private uint TimeoutInSeconds => TestContext.Parameters.Get<uint>("SeleniumTimeout", 60);
-        private int Sleep => TestContext.Parameters.Get<int>("SeleniumSleep", 3) * 1000;
+        private uint TimeoutInSeconds;
+        private int Sleep;
 
         public RegisterPage()
         {

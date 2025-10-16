@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj": {}
+    "C:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj": {}
   },
   "projects": {
-    "c:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj": {
+    "C:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj",
+        "projectUniqueName": "C:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj",
         "projectName": "automatedTest",
-        "projectPath": "c:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj",
+        "projectPath": "C:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\automatedTest.csproj",
         "packagesPath": "C:\\Users\\noteb\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\obj\\",
+        "outputPath": "C:\\Users\\noteb\\projek-ojt\\tugas1\\automatedTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

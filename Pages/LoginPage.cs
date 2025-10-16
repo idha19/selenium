@@ -10,8 +10,8 @@ namespace automatedTest.Pages
         private readonly ExtentReportsHelper _extentReportsHelper;
         private readonly Navbar _navbar;
 
-        private uint TimeoutInSeconds => TestContext.Parameters.Get<uint>("SeleniumTimeout", 60);
-        private int Sleep => TestContext.Parameters.Get<int>("SeleniumSleep", 3) * 1000;
+        private uint TimeoutInSeconds;
+        private int Sleep;
 
         public LoginPage()
         {
@@ -33,8 +33,9 @@ namespace automatedTest.Pages
         private By InputPassword => By.CssSelector("input[data-qa='login-password']");
         private By BtnLogin => By.CssSelector("button[data-qa='login-button']");
         private By TxtLoggedIn => By.XPath("//a[contains(text(),'Logged in as')]");
-        private By BtnDeleteAccount => By.XPath("//a[contains(text(),'Delete Account')]");
-        private By TxtAccountDeleted => By.XPath("//h2[contains(text(),'ACCOUNT DELETED!')]");
+        private By BtnLogout => By.XPath("//a[@href='/logout']");
+        private By TxtLoginPage => By.XPath("//h2[contains(text(),'Login to your account')]");
+        private By TxtLoginError => By.XPath("//p[contains(text(),'Your email or password is incorrect!')]");
 
         // methods
         public void NavigateToLoginPage()
@@ -65,15 +66,21 @@ namespace automatedTest.Pages
             return _driver.ControlDisplayed(TxtLoggedIn, _extentReportsHelper, "Logged in as username visible", true, TimeoutInSeconds);
         }
 
-        public void ClickDeleteAccount()
+        public void ClickLogoutButton()
         {
-            _driver.ClickWrapper(BtnDeleteAccount, _extentReportsHelper, "Click Delete Account", TimeoutInSeconds);
+            _driver.ControlDisplayed(BtnLogout, _extentReportsHelper, "Logout button visible", true, TimeoutInSeconds);
+            _driver.ClickWrapper(BtnLogout, _extentReportsHelper, "Click Logout Button", TimeoutInSeconds);
             Thread.Sleep(Sleep);
         }
 
-        public bool IsAccountDeletedVisible()
+        public bool IsBackToLoginPage()
         {
-            return _driver.ControlDisplayed(TxtAccountDeleted, _extentReportsHelper, "ACCOUNT DELETED visible", true, TimeoutInSeconds);
+            return _driver.ControlDisplayed(TxtLoginPage, _extentReportsHelper, "Login page visible", true, TimeoutInSeconds);
+        }
+
+        public bool IsLoginErrorVisible()
+        {
+            return _driver.ControlDisplayed(TxtLoginError, _extentReportsHelper, "Login error message visible", true, TimeoutInSeconds);
         }
     }
 }

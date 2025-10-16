@@ -13,9 +13,9 @@ namespace automatedTest.Pages
     {
         private readonly IWebDriver? _driver;
         private readonly ExtentReportsHelper? _extentReportsHelper;
-        private uint TimeoutInSeconds => TestContext.Parameters.Get<uint>("SeleniumTimeout", 60);
-        private int Sleep => TestContext.Parameters.Get<int>("SeleniumSleep", 3) * 1000;
-        private string BaseUrl => TestContext.Parameters.Get<string>("AppBaseUrl", "https://automationexercise.com/");
+        private uint TimeoutInSeconds;
+        private int Sleep;
+        // private string BaseUrl => TestContext.Parameters.Get<string>("AppBaseUrl", "https://automationexercise.com/");
         private readonly Navbar _navbar;
 
         /// <summary>
@@ -58,11 +58,11 @@ namespace automatedTest.Pages
         /// <summary>
         /// Navigate ke URL tertentu
         /// </summary>
-        public void Navigate(string BaseUrl)
+        public void Navigate(string url)
         {
-            _driver!.Navigate().GoToUrl(BaseUrl);
+            _driver!.Navigate().GoToUrl(url);
             Thread.Sleep(Sleep); // optional delay agar halaman stabil
-            _extentReportsHelper?.LogInfo($"Navigated to {BaseUrl}");
+            _extentReportsHelper?.LogInfo($"Navigated to {url}");
         }
 
         /// <summary>
