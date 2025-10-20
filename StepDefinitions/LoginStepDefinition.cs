@@ -10,6 +10,7 @@ namespace automatedTest.StepDefinitions
     public class LoginStepDefinition
     {
         private BasePages? BasePage => BasePagesHelper.GetBasePage;
+        
 
         // ======= NAVIGATION =======
         [Given(@"user on automation exercise web home page")]
