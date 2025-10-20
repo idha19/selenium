@@ -20,53 +20,69 @@ namespace automatedTest.StepDefinitions
         }
 
         // ==== LOGIN FLOW ====
-        [When(@"user clicks on ""Signup / Login"" button")]
+        [When(@"user clicks on Signup / Login button")]
         public void WhenUserClicksOnSignupLoginButton()
         {
             BasePage?.LoginPage.NavigateToLoginPage();
         }
 
-        [Then(@"verify ""Login to your account"" is visible")]
+        [Then(@"verify Login to your account is visible")]
         public void ThenVerifyLoginToYourAccountIsVisible()
         {
             Assert.IsTrue(BasePage?.LoginPage.IsLoginTitleVisible(), "\"Login to your account\" tidak tampil!");
         }
 
 
-        // LOGIN VALID
-        [When(@"user logs in with valid email and valid password")]
-        public void WhenUserLogsInWithEmailAndPassword()
-        {
-            BasePage?.LoginPage.EnterEmailAndPassword(Username, Password);
-        }
+        // // LOGIN VALID
+        // [When(@"user logs in with valid email and valid password")]
+        // public void WhenUserLogsInWithEmailAndPassword()
+        // {
+        //     BasePage?.LoginPage.EnterEmailAndPassword(Username, Password);
+        // }
 
-        [Then(@"user clicks ""login"" button")]
+        [When(@"user logs in with email (.*) and password (.*)")]
+        public void WhenUserLogsInWithEmailAndPassword(string email, string password)
+        {
+            BasePage?.LoginPage.EnterEmailAndPassword(email, password);
+        }
+        
+
+        [Then(@"user clicks login button")]
         public void ThenUserClicksLoginButton()
         {
             BasePage?.LoginPage.ClickLoginButton();
         }
 
-        [Then(@"verify that ""Logged in as username"" is visible")]
+        [Then(@"verify that Logged in as username is visible")]
         public void ThenVerifyThatLoggedInAsUsernameIsVisible()
         {
             Assert.IsTrue(BasePage?.LoginPage.IsLoggedInAsVisible(), "\"Logged in as username\" tidak tampil!");
         }
 
-        // LOGIN INVALID
-        [When(@"user logs in with invalid email ""(.*)"" and invalid password ""(.*)""")]
-        public void WhenUserLogsInWithInvalidCredentials(string email, string password)
+        [Then(@"verify login message (.*) is visible")]
+        public void ThenVerifyPageIsVisible(string msg)
         {
-            BasePage?.LoginPage.EnterEmailAndPassword(email, password);
+            if (msg.Contains("Logged"))
+                Assert.IsTrue(BasePage?.LoginPage.IsLoggedInAsVisible(), "\"Logged in as username\" tidak tampil!");
+            else 
+                Assert.IsTrue(BasePage?.LoginPage.IsLoginErrorVisible(), "Pesan error login tidak tampil!");
         }
 
-        [Then(@"verify error 'Your email or password is incorrect!' is visible")]
-        public void ThenVerifyErrorIsVisible()
-        {
-            Assert.IsTrue(BasePage?.LoginPage.IsLoginErrorVisible(), "Pesan error login tidak tampil!");
-        }
+        // // LOGIN INVALID
+        // [When(@"user logs in with invalid email ""(.*)"" and invalid password ""(.*)""")]
+        // public void WhenUserLogsInWithInvalidCredentials(string email, string password)
+        // {
+        //     BasePage?.LoginPage.EnterEmailAndPassword(email, password);
+        // }
+
+        // [Then(@"verify error 'Your email or password is incorrect!' is visible")]
+        // public void ThenVerifyErrorIsVisible()
+        // {
+        //     Assert.IsTrue(BasePage?.LoginPage.IsLoginErrorVisible(), "Pesan error login tidak tampil!");
+        // }
 
         // LOGOUT
-        [When(@"user clicks ""Logout"" button")]
+        [When(@"user clicks Logout button")]
         public void WhenUserClicksLogoutButton()
         {
             BasePage?.LoginPage.ClickLogoutButton();

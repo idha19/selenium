@@ -81,26 +81,34 @@ namespace automatedTest.Features
         testRunner.Given("user on automation exercise web home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
-        testRunner.When("user clicks on \"Signup / Login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When("user clicks on Signup / Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
-        testRunner.Then("verify \"Login to your account\" is visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("verify Login to your account is visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User login with correct email and password successfully")]
+        [NUnit.Framework.DescriptionAttribute("User login with email and password")]
         [NUnit.Framework.CategoryAttribute("Login")]
         [NUnit.Framework.CategoryAttribute("UI")]
-        [NUnit.Framework.CategoryAttribute("Regression")]
-        public virtual void UserLoginWithCorrectEmailAndPasswordSuccessfully()
+        [NUnit.Framework.TestCaseAttribute("tase.case1@gmail.com", "tase.case1", "Logged in as username", null)]
+        [NUnit.Framework.TestCaseAttribute("test1@gmail.com", "123", "Your email or password is incorrect!", null)]
+        public virtual void UserLoginWithEmailAndPassword(string email, string password, string message, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Login",
-                    "UI",
-                    "Regression"};
+                    "UI"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User login with correct email and password successfully", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("message", message);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User login with email and password", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 10
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -125,62 +133,13 @@ namespace automatedTest.Features
     this.FeatureBackground();
 #line hidden
 #line 11
-        testRunner.When("user logs in with valid email and valid password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When(string.Format("user logs in with email {0} and password {1}", email, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
-        testRunner.Then("user clicks \"login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
-        testRunner.And("verify that \"Logged in as username\" is visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User login with incorrect email and password")]
-        [NUnit.Framework.CategoryAttribute("Login")]
-        [NUnit.Framework.CategoryAttribute("UI")]
-        [NUnit.Framework.CategoryAttribute("Negative")]
-        public virtual void UserLoginWithIncorrectEmailAndPassword()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "Login",
-                    "UI",
-                    "Negative"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User login with incorrect email and password", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 4
-    this.FeatureBackground();
-#line hidden
-#line 17
-        testRunner.When("user logs in with invalid email \"test1@gmail.com\" and invalid password \"123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 18
-        testRunner.Then("user clicks \"login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 19
-        testRunner.And("verify error \'Your email or password is incorrect!\' is visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("verify login message {0} is visible", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -190,16 +149,14 @@ namespace automatedTest.Features
         [NUnit.Framework.DescriptionAttribute("User logout successfully")]
         [NUnit.Framework.CategoryAttribute("Login")]
         [NUnit.Framework.CategoryAttribute("UI")]
-        [NUnit.Framework.CategoryAttribute("Negative")]
         public virtual void UserLogoutSuccessfully()
         {
             string[] tagsOfScenario = new string[] {
                     "Login",
-                    "UI",
-                    "Negative"};
+                    "UI"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User logout successfully", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 22
+#line 21
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -222,19 +179,19 @@ namespace automatedTest.Features
 #line 4
     this.FeatureBackground();
 #line hidden
+#line 22
+        testRunner.When("user logs in with email tase.case1@gmail.com and password tase.case1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 23
-        testRunner.When("user logs in with valid email and valid password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.Then("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 24
-        testRunner.Then("user clicks \"login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And("verify that Logged in as username is visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 25
-        testRunner.And("verify that \"Logged in as username\" is visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.When("user clicks Logout button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 26
-        testRunner.When("user clicks \"Logout\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 27
         testRunner.Then("verify that user is navigated to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
